@@ -2,6 +2,6 @@ index:
     path: /
     controller: App\Controller\IndexController::index
     
-index:
+empresa:
     path: /empresa
     controller: App\Controller\EmpresaController::index
