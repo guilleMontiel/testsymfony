@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+    
+index:
+    path: /empresa
+    controller: App\Controller\EmpresaController::index
