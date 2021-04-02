@@ -4,4 +4,37 @@ index:
     
 empresa:
     path: /empresa
-    controller: App\Controller\EmpresaController::index
+    defaults: { _controller: App\Controller\EmpresaController::index }
+    options:
+        expose: true
+
+new_empresa:
+    path: /empresa/new
+    controller: App\Controller\EmpresaController::new
+
+edit_empresa:
+    path: /empresa/update/{id}
+    controller: App\Controller\EmpresaController::update
+    
+delete_empresa:
+    path: /empresa/delete/{id}
+    controller: App\Controller\EmpresaController::delete
+    
+
+sector:
+    path: /sector
+    defaults: { _controller: App\Controller\SectorController::index }
+    options:
+        expose: true
+
+new_sector:
+    path: /sector/new
+    controller: App\Controller\SectorController::new
+
+edit_sector:
+    path: /sector/update/{id}
+    controller: App\Controller\SectorController::update
+    
+delete_sector:
+    path: /sector/delete/{id}
+    controller: App\Controller\SectorController::delete

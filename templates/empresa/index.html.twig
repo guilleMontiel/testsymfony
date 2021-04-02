@@ -3,43 +3,65 @@
 
 {% block main %}
 {{ parent() }}
+
 <div class="row-fluid">
     <div class="col-sm-12 mb-3">
         <div class="card">
             <div class="card-header"><h2><i class="fa fa-list-alt"></i> Lista de empresas</h2></div>
         </div>
     </div>
-    <div class="col-sm-12 mb-3">
-        <a href="#" class="btn btn-info">Nuevo registro</a>
-    </div>
     <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>NOMBRE</th>
-                            <th>TELEFONO</th>
-                            <th>EMAIL</th>
-                            <th>SECTOR</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for empresa in empresas %}
-                        <tr>
-                            <td>{{ empresa.id }}</td>
-                            <td>{{ empresa.nombre }}</td>
-                            <td>{{ empresa.telefono }}</td>
-                            <td>{{ empresa.sector }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+        <nav aria-label="breadcrumb mb-2">
+           <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="{{ path('index') }}"><i class="fa fa-home"></i> Home</a></li>
+             <li class="breadcrumb-item active">Empresas</li>
+           </ol>
+       </nav>
+    </div>
+    <div class="col-sm-12 mb-3">
+        <a href="{{ path('new_empresa') }}" class="btn btn-info"><i class="fa fa-plus-circle"></i> Nuevo registro</a>
+    </div>
+    
+    <div class="col-sm-12">
+         {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                <b><i class="fas fa-check-circle"></i> {{ message }}</b>
             </div>
-        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="col-sm-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>NOMBRE</th>
+                    <th>TELEFONO</th>
+                    <th>EMAIL</th>
+                    <th>SECTOR</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empresa in empresas %}
+                <tr>
+                    <td>{{ empresa.id }}</td>
+                    <td>{{ empresa.nombre }}</td>
+                    <td>{{ empresa.telefono }}</td>
+                    <td>{{ empresa.email }}</td>
+                    <td>{{ empresa.sector.nombre }}</td>
+                    <td class="text-center">
+                        <a class="text-success" href="#"><i class="fa fa-edit"></i></a>
+                        <a class="text-danger deleteLink" data-url="{{ path('delete_empresa',{id:empresa.id}) }}" data-nombre-empresa="{{ empresa.nombre }}"  href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>                
     </div>
 </div>
+{{ encore_entry_link_tags('empresacss') }}
+{{ encore_entry_script_tags('empresajs') }}
 {% endblock %}
 
 

@@ -10,6 +10,7 @@
         {% endblock %}
         
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+               
     </head>
     <body>
         {% block header %}
@@ -18,7 +19,7 @@
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+            
             <ul class="navbar-nav px-3">
               <li class="nav-item text-nowrap">
                 <a class="nav-link" href="#">Sign out</a>
@@ -40,15 +41,13 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                        Orders
+                      <a class="nav-link" href="{{ path('empresa') }}">
+                          <i class="fa fa-industry"></i> Empresas
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                        Products
+                      <a class="nav-link" href="{{ path('sector') }}">
+                          <i class="fa fa-layer-group"></i> Sectores
                       </a>
                     </li>
                     <li class="nav-item">
@@ -106,19 +105,19 @@
                 </div>
                 </nav>
             {% endblock %}
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-2">
                 {% block main %} {% endblock %} 
             </main>
             {% block main_index %} {% endblock %}
         </div>
     </div>
     {% block footer %}  
-          <footer class="footer mt-auto py-3">            
+         {# <footer class="footer mt-auto py-3">            
             <div class="container">
               <span class="text-muted">Place sticky footer content here.</span>
             </div>            
-          </footer>
+          </footer>#}
     {% endblock %}
-        
     </body>
+    {% block javascript_functions %}{% endblock %}
 </html>

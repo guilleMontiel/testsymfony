@@ -33,7 +33,7 @@ class Empresa
     private $email;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Sector::class, inversedBy="empresas")
      */
     private $sector;
 
@@ -71,19 +71,19 @@ class Empresa
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getSector(): ?int
+    public function getSector(): ?Sector
     {
         return $this->sector;
     }
 
-    public function setSector(int $sector): self
+    public function setSector(?Sector $sector): self
     {
         $this->sector = $sector;
 

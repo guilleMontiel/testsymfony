@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nueva Empresa{% endblock %}
+
+{% block main %}
+{{ parent() }}
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header"><h3>Nueva Empresa</h3></div>
+            </div>            
+        </div>
+    </div>
+
+    <nav aria-label="breadcrumb mb-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('index') }}"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ path('empresa') }}">Empresas</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nuevo registro</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                {{ form(form) }}
+            </div>
+            </div>            
+        </div>
+    </div>
+
+{% endblock %}
