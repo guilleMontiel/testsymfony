@@ -50,7 +50,7 @@
                     <td>{{ sector.id }}</td>
                     <td>{{ sector.nombre }}</td>
                     <td class="text-center">
-                        <a class="text-success" href="#"><i class="fa fa-edit"></i></a>
+                        <a class="text-success" href="{{ path('edit_sector',{id:sector.id}) }}"><i class="fa fa-edit"></i></a>
                         <a class="text-danger deleteLink" data-url="{{ path('delete_sector',{id:sector.id}) }}" data-nombre-sector="{{ sector.nombre }}"  href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
                     </td>
                 </tr>

@@ -51,7 +51,7 @@
                     <td>{{ empresa.email }}</td>
                     <td>{{ empresa.sector.nombre }}</td>
                     <td class="text-center">
-                        <a class="text-success" href="#"><i class="fa fa-edit"></i></a>
+                        <a class="text-success" href="{{ path('edit_empresa',{id:empresa.id}) }}"><i class="fa fa-edit"></i></a>
                         <a class="text-danger deleteLink" data-url="{{ path('delete_empresa',{id:empresa.id}) }}" data-nombre-empresa="{{ empresa.nombre }}"  href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
                     </td>
                 </tr>

@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Sector;
+use Symfony\Component\HttpFoundation\Request;
+use App\Form\SectorType;
 class SectorController extends AbstractController
 {
     /**
@@ -50,7 +52,7 @@ class SectorController extends AbstractController
     public function update(int $id, Request $request){
                 
         
-        $sector = $this->getDoctrine()->getRepository(Empresa::class)->find($id);
+        $sector = $this->getDoctrine()->getRepository(Sector::class)->find($id);
         $form = $this->createForm(SectorType::class,$sector);
         $form->handleRequest($request);
         
