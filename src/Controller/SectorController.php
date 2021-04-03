@@ -77,7 +77,10 @@ class SectorController extends AbstractController
     public function delete(int $id){
                 
         $entityManager = $this->getDoctrine()->getManager();
-        $sector = $entityManager->getRepository(Empresa::class)->find($id);
+        $sector = $entityManager->getRepository(Sector::class)->find($id);
+        
+        $empresas = $sector->getEmpresas();
+
         $entityManager->remove($sector);
         $entityManager->flush();
         $this->addFlash('success', 'Se elimino la sector exitosamente');

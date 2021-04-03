@@ -1,6 +1,10 @@
 index:
     path: /
     controller: App\Controller\IndexController::index
+
+dashboard:
+    path: /dashboard
+    controller: App\Controller\DashboardController::index
     
 empresa:
     path: /empresa

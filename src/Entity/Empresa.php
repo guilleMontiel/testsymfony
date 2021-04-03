@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EmpresaRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraint as Assert;
 /**
  * @ORM\Entity(repositoryClass=EmpresaRepository::class)
  */
@@ -19,6 +19,8 @@ class Empresa
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @NotBlank("El campo nombre no puede estar vacio.")
+     * @NotNull("El Nombre no puede ser nulo.")
      */
     private $nombre;
 
@@ -34,6 +36,7 @@ class Empresa
 
     /**
      * @ORM\ManyToOne(targetEntity=Sector::class, inversedBy="empresas")
+     * @NotNull("Debe elegir un Sector para la Empresa.")
      */
     private $sector;
 

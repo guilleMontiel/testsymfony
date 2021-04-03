@@ -13,7 +13,7 @@
     <div class="col-sm-12">
         <nav aria-label="breadcrumb mb-2">
            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ path('index') }}"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('dashboard') }}"><i class="fa fa-home"></i> Home</a></li>
                 <li class="breadcrumb-item active">Sectores</li>
            </ol>
        </nav>
@@ -30,7 +30,7 @@
         {% endfor %}
         {% for message in app.flashes('error') %}
             <div class="alert alert-danger">
-                <b>{{ message }}</b>
+                <b><i class="fa fa-exclamation-circle"></i> {{ message }}</b>
             </div>
         {% endfor %}
     </div>

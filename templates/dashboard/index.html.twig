@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block sidebar %} {% endblock %}
+
+ 
+{% block main_index %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Bienvenido</h1>
+    <p class="lead">Para continuar elija una opci&oacute;n</p>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-md-3 mt-5">
+            <div class="card text-center">
+                <img  src="https://pics.freeicons.io/uploads/icons/png/10303084061558096238-512.png"  class="img-responsive" alt="empresas">
+                <div class="card-body">                    
+                  <h5 class="card-title">Empresas</h5>
+                  <p class="card-text">En este apartado se puede crear, editar y eliminar las empresas.
+                  Tambien se puede asociar un sector especifico a la empresa.</p>
+                  <a href="{{ path('empresa') }}" class="btn btn-primary">Entrar <i class="fa fa-sign-in-alt"></i> </a>
+                </div>
+            </div>
+        </div>  
+        <div class="col-md-3 mt-5">
+            <div class="card text-center">
+                <img src="https://pics.freeicons.io/uploads/icons/png/305667541535797977-512.png" class="img-responsive" alt="sectores">
+                <div class="card-body">
+                  <h5 class="card-title">Sectores</h5>
+                  <p class="card-text">En este aparatado se puede crear,editar y eliminar los distintos sectores asociados a las empresas.</p>
+                  <a href="{{ path('sector') }}" class="btn btn-primary">Entrar <i class="fa fa-sign-in-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
+
