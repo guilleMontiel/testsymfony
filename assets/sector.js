@@ -6,12 +6,12 @@ import 'jquery-confirm';
 
 $('.deleteLink').click(function(){
     
-    var nombre = $(this).data('nombreEmpresa');
+    var nombre = $(this).data('nombreSector');
     var url = $(this).data('url');
     $.confirm({
         title: '¡Atencion!',
-        type: 'orange',
-        content: 'Seguro que quiere eliminar la Empresa '+nombre,
+        type: 'red',
+        content: '¿Eliminar el sector '+nombre+'?',
         theme:'material',
         buttons: {
             confirmar: {
@@ -32,7 +32,6 @@ $('.deleteLink').click(function(){
     });
 });
 
-$("#empresa_Cancelar").click(function(){
-     window.location.href =  '/empresa';
+$("#sector_Cancelar").click(function(){
+     window.location.href =  '/sector';
 });
-

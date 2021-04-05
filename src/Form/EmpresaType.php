@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Sector;
-
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 
 class EmpresaType extends AbstractType
 {
@@ -20,7 +20,7 @@ class EmpresaType extends AbstractType
         $builder
             ->add('nombre')
             ->add('telefono')
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class,['invalid_message'=>'El email es invalido'])
             ->add('sector', EntityType::class,[
                 'class' => Sector::class,
                 'placeholder'=>'Seleccionar...',
@@ -29,7 +29,7 @@ class EmpresaType extends AbstractType
                 }
                 ])
             ->add('Guardar',SubmitType::class)
-            ->add('Cancelar',SubmitType::class,['attr'=>['class'=>'btn btn-danger']])
+            ->add('Cancelar', ButtonType::class,['attr'=>['class'=>'btn btn-danger']])
         ;
     }
 

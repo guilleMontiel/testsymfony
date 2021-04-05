@@ -20,6 +20,8 @@
     </div>
     <div class="col-sm-12 mb-3">
         <a href="{{ path('new_sector') }}" class="btn btn-info"><i class="fa fa-plus-circle"></i> Nuevo registro</a>
+        
+        <a href="{{ path('asociar') }}" class="btn btn-info"><i class="fa fa-user-plus"></i> Asociar Cliente</a>
     </div>
     
     <div class="col-sm-12">
@@ -59,8 +61,8 @@
         </table>
     </div>
 </div>
-{{ encore_entry_link_tags('empresacss') }}
-{{ encore_entry_script_tags('empresajs') }}
+{{ encore_entry_link_tags('confirmcss') }}
+{{ encore_entry_script_tags('sectorjs') }}
 {% endblock %}
 
 

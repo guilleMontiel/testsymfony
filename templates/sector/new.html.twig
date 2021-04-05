@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Nuevo Sector{% endblock %}
+{% block title %} {{controller_name}} {% endblock %}
 
 {% block main %}
 {{ parent() }}
     <div class="row mb-2">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header"><h3>Nuevo  Sector</h3></div>
+                <div class="card-header"><h3>{{ controller_name }}</h3></div>
             </div>            
         </div>
     </div>
@@ -22,10 +22,21 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                {{ form(form) }}
+                {{ form_start(form) }}
+                       
+                    {% if form_errors(form) %}
+                        <div class="alert alert-danger">
+                            <b>{{ form_errors(form) }}</b>
+                        </div>
+                    {% endif %}
+                    {{ form_row(form.nombre) }}
+                        <div class="row">
+                            {{ form_row(form.Guardar) }} &nbsp; {{ form_row(form.Cancelar) }}                            
+                        </div>
+                    {{ form_end(form) }}
             </div>
             </div>            
         </div>
     </div>
-
+{{ encore_entry_script_tags('sectorjs') }}
 {% endblock %}

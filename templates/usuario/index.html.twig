@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block title %}Usuarios{% endblock %}
+
+{% block main %}
+{{ parent() }}
+
+<div class="row-fluid">
+    <div class="col-sm-12 mb-3">
+        <div class="card">
+            <div class="card-header"><h2><i class="fa fa-list-alt"></i> Lista de usuarios</h2></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <nav aria-label="breadcrumb mb-2">
+           <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="{{ path('dashboard') }}"><i class="fa fa-home"></i> Home</a></li>
+             <li class="breadcrumb-item active">Usuarios</li>
+           </ol>
+       </nav>
+    </div>
+    <div class="col-sm-12 mb-3">
+        <a href="{{ path('usuario_alta_admin') }}" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Nuevo usuario Admin</a>
+        <a href="{{ path('usuario_alta_cliente') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Nuevo usuario Cliente</a>
+    </div>
+    
+    <div class="col-sm-12">
+         {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                <b><i class="fas fa-check-circle"></i> {{ message }}</b>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="col-sm-12">
+        <table id="usuarios" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>EMAIL</th>
+                    <th>ROL</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{% for rol in usuario.getRoles %}
+                        {{ rol }}
+                        {% endfor %}
+                    </td>                    
+                    <td class="text-center">
+                        <a class="text-success" href="{{ path('edit_usuario',{id:usuario.id}) }}"><i class="fa fa-edit"></i></a>
+                        <a class="text-danger deleteLink" data-url="{{ path('delete_usuario',{id:usuario.id}) }}" data-nombre-usuario="{{ usuario.nombre }}"  href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+           
+    </div>
+</div>
+{% endblock %}
+
+

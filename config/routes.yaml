@@ -1,6 +1,6 @@
 index:
     path: /
-    controller: App\Controller\IndexController::index
+    controller: App\Controller\DashboardController::index
 
 dashboard:
     path: /dashboard
@@ -22,13 +22,14 @@ delete_empresa:
     path: /empresa/delete/{id}
     controller: App\Controller\EmpresaController::delete
     
-
+empresa_cliente:
+    path: /empresa/empresaporcliente
+    controller: App\Controller\EmpresaController::empresaporcliente
+    
 sector:
     path: /sector
-    defaults: { _controller: App\Controller\SectorController::index }
-    options:
-        expose: true
-
+    controller: App\Controller\SectorController::index
+    
 new_sector:
     path: /sector/new
     controller: App\Controller\SectorController::new
@@ -37,6 +38,38 @@ edit_sector:
     path: /sector/update/{id}
     controller: App\Controller\SectorController::update
     
+asociar:
+    path: /sector/asociar
+    controller: App\Controller\SectorController::asociar
+    
 delete_sector:
     path: /sector/delete/{id}
     controller: App\Controller\SectorController::delete
+cliente_sector:
+    path: /sector/sectorporcliente
+    controller: App\Controller\SectorController::sectorporcliente
+    
+usuario:
+    path: /usuario
+    controller: App\Controller\UsuarioController::index
+usuario_alta_cliente:
+    path: /usuario/altaCliente
+    controller: App\Controller\UsuarioController::altaCliente
+usuario_alta_admin:
+    path: /usuario/altaAdmin
+    controller: App\Controller\UsuarioController::altaAdmin
+edit_usuario:
+    path: /usuario/edit
+    controller: App\Controller\UsuarioController::altaAdmin
+update_usuario:
+    path: /usuario/altaAdmin
+    controller: App\Controller\UsuarioController::altaAdmin
+    
+    
+moneda:
+    path: /moneda
+    controller: App\Controller\MonedaController::index
+    
+moneda_convertir:
+    path: /moneda/convertir
+    controller: App\Controller\MonedaController::convertir

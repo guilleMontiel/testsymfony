@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -33,6 +35,22 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $nombre;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ClienteSector::class, mappedBy="id_user")
+     */
+    private $clienteSectors;
+
+
+    public function __construct()
+    {
+        $this->clienteSectors = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -114,4 +132,47 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ClienteSector[]
+     */
+    public function getClienteSectors(): Collection
+    {
+        return $this->clienteSectors;
+    }
+
+    public function addClienteSector(ClienteSector $clienteSector): self
+    {
+        if (!$this->clienteSectors->contains($clienteSector)) {
+            $this->clienteSectors[] = $clienteSector;
+            $clienteSector->setIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClienteSector(ClienteSector $clienteSector): self
+    {
+        if ($this->clienteSectors->removeElement($clienteSector)) {
+            // set the owning side to null (unless already changed)
+            if ($clienteSector->getIdUser() === $this) {
+                $clienteSector->setIdUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

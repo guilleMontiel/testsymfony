@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}ERROR{% endblock %}
+
+{% block main %}
+{{ parent() }}
+
+<div class="container">
+    <div class="col-sm-12">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h2> <b class="text-danger"><i class="fa fa-user-times"></i></b> No tiene permisos para ingresar a esta secci&oacute;n</h2>
+                <a href="{{ path('dashboard') }}" class="btn btn-light"><i class="fa fa-arrow-circle-left"></i> Atr&&aacute;s</a>
+            </div>
+        </div>           
+    </div>
+</div>
+{% endblock %}
+
+

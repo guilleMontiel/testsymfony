@@ -7,7 +7,7 @@
 <div class="row-fluid">
     <div class="col-sm-12 mb-3">
         <div class="card">
-            <div class="card-header"><h2><i class="fa fa-list-alt"></i> Lista de empresas</h2></div>
+            <div class="card-header"><h2><i class="fa fa-list-alt"></i> Empresas Asociadas</h2></div>
         </div>
     </div>
     <div class="col-sm-12">
@@ -41,7 +41,6 @@
                     <th>TELEFONO</th>
                     <th>EMAIL</th>
                     <th>SECTOR</th>
-                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,23 +51,13 @@
                     <td>{{ empresa.telefono }}</td>
                     <td>{{ empresa.email }}</td>
                     <td>{{ empresa.sector.nombre }}</td>
-                    <td class="text-center">
-                        {% if is_granted('ROLE_ADMIN') %}
-                        <a class="text-success" href="{{ path('edit_empresa',{id:empresa.id}) }}"><i class="fa fa-edit"></i></a>
-                        <a class="text-danger deleteLink" data-url="{{ path('delete_empresa',{id:empresa.id}) }}" data-nombre-empresa="{{ empresa.nombre }}"  href="javascript:void(0)"><i class="fa fa-times-circle"></i></a>
-                         {% endif %}
-                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-           
+        
     </div>
 </div>
-{{ encore_entry_link_tags('confirmcss') }}
-{{ encore_entry_script_tags('empresajs') }}
-
-
 {% endblock %}
 
 

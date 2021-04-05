@@ -10,7 +10,10 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Bienvenido</h1>
-    <p class="lead">Para continuar elija una opci&oacute;n</p>
+    <p class="lead">En esta demo existe distintas secciones<br>
+        Administrador de Empresas y Sectores.<br>
+        Administrador de Usuarios.<br>
+        Una mini APP que consume una APIREST externa.</p> 
   </div>
 </div>
 <div class="container">
@@ -21,17 +24,20 @@
                 <div class="card-body">                    
                   <h5 class="card-title">Empresas</h5>
                   <p class="card-text">En este apartado se puede crear, editar y eliminar las empresas.
-                  Tambien se puede asociar un sector especifico a la empresa.</p>
+                      Tambien se puede asociar un sector especifico a la empresa.
+                  </p>
                   <a href="{{ path('empresa') }}" class="btn btn-primary">Entrar <i class="fa fa-sign-in-alt"></i> </a>
                 </div>
             </div>
         </div>  
-        <div class="col-md-3 mt-5">
+        <div class="col-md-3 mt-5 mb-3">
             <div class="card text-center">
                 <img src="https://pics.freeicons.io/uploads/icons/png/305667541535797977-512.png" class="img-responsive" alt="sectores">
                 <div class="card-body">
                   <h5 class="card-title">Sectores</h5>
-                  <p class="card-text">En este aparatado se puede crear,editar y eliminar los distintos sectores asociados a las empresas.</p>
+                  <p class="card-text">
+                      En este aparatado se puede crear,editar y eliminar los distintos sectores asociados a las empresas.
+                  </p>
                   <a href="{{ path('sector') }}" class="btn btn-primary">Entrar <i class="fa fa-sign-in-alt"></i></a>
                 </div>
             </div>

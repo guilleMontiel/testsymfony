@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{controller_name}} {% endblock %}
+
+{% block main %}
+{{ parent() }}
+    <div class="row mb-2">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header"><h3>{{ controller_name }}</h3></div>
+            </div>            
+        </div>
+    </div>
+
+    <nav aria-label="breadcrumb mb-2">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('dashboard') }}"><i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ path('sector') }}">Sectores</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nuevo registro</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    {{ form(form) }}
+                    {#<form method="POST">
+                        <div class="form-group">
+                            <label>Cliente</label>
+                            <select class="form-control" name="id_user">
+                                {% for cliente in clientes %}
+                                    <option value="{{ cliente.id }}" >{{ cliente.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                            <div class="form-group">
+                            <label>Sector</label>
+                            <select class="form-control" name="id_sector">
+                                {% for sector in sectores %}
+                                    <option value="{{ sector.id }}" >{{ sector.nombre }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                            <a class="btn btn-danger" href="{{ path('sector') }}">Cancelar</a>
+                    </form>#}
+                </div>
+            </div>            
+        </div>
+    </div>
+{{ encore_entry_script_tags('sectorjs') }}
+{% endblock %}

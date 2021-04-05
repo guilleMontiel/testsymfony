@@ -16,19 +16,29 @@ Sitema web desarrollado como prueba de conocimiento en Symfony
     <ul>
         <li>Crear, editar y eliminar empresas</li>
         <li>Crear, editar y eliminar sectores</li>
-        <li>Crear  y eliminar usuarios</li>
-        <li>Asociar usuarios a sectores</ul>
-        <li>Asociar sectores a empresas</ul>
+        <li>Crear, editar y eliminar usuarios</li>
+        <li>Asociar usuarios a sectores</li>
+        <li>Asociar sectores a empresas</li>
     </ul>
 - CLIENTE:
     <ul>
-        <li>Ver las empresas asociadas a el sector del usuario.</li>
+        <li>Ver el sector asociado a su usuario.</li>
+        <li>Ver las empresas asociadas a el sector.</li>
     </ul>
-- <b>Restricciones</b>
+
+- <b>RESTRICCIONES</b>
     <ul>
         <li>El nombre de la empresa y el sector son obligatorios</li>
         <li>El nombre del sector no se puede repetir</li>
         <li>No se pude eliminar un sector que esta asociado a empresas.</li>
+    </ul>
+
+- <b>USUARIO DE PRUEBA: </b>
+    <ul>
+        <li>Usuario: cliente@test.com</li>
+        <li>Password: 1234</li>
+        <li>Usuario: admin@admin.com</li>
+        <li>Password: 1234</li>
     </ul>
 
 # INSTALACION

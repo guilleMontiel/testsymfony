@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\SectorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -22,6 +22,8 @@ class Sector
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="El nombre no puede estar vacio")
+     * @Assert\NotNull(message="El nombre no puede ser null")
      */
     private $nombre;
 
@@ -30,9 +32,16 @@ class Sector
      */
     private $empresas;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ClienteSector::class, mappedBy="id_sector")
+     */
+    private $clienteSectors;
+
+
     public function __construct()
     {
         $this->empresas = new ArrayCollection();
+        $this->clienteSectors = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -81,4 +90,37 @@ class Sector
 
         return $this;
     }
+
+    /**
+     * @return Collection|ClienteSector[]
+     */
+    public function getClienteSectors(): Collection
+    {
+        return $this->clienteSectors;
+    }
+
+    public function addClienteSector(ClienteSector $clienteSector): self
+    {
+        if (!$this->clienteSectors->contains($clienteSector)) {
+            $this->clienteSectors[] = $clienteSector;
+            $clienteSector->setIdSector($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClienteSector(ClienteSector $clienteSector): self
+    {
+        if ($this->clienteSectors->removeElement($clienteSector)) {
+            // set the owning side to null (unless already changed)
+            if ($clienteSector->getIdSector() === $this) {
+                $clienteSector->setIdSector(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
+   
 }
