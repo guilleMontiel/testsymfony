@@ -65,7 +65,7 @@ Al finalizar se debe ingresar a la carpeta "testsymfony" (el nombre del proyecto
 ** SIN MAKE SOLO CON DOCKER ***<br>
 
 1) - <b>docker-compose up -d --build</b>
-2) - <b>docker-compose run --rm apache composer install --prefer-dist</b>
+2) - <b>docker-compose run --rm symfonyweb composer install --prefer-dist</b>
 1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn install'</b>
 1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn encore dev'</b>
 
