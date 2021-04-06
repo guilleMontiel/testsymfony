@@ -3,11 +3,13 @@ services:
  symfonyweb:
    build:
     context: 'php'
-    dockerfile: Dockerfile    
+    dockerfile: Dockerfile 
    ports:
       - "8086:80"
+   working_dir: /var/www/html/atrinium/
    volumes:
-      - /home/guille/www/html/atrinium:/var/www/html/atrinium/
+      - ./:/var/www/html/atrinium/
+      
  mysqlDB:
     image: mysql:5.7.33
     restart: always
