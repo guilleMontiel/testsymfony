@@ -12,13 +12,7 @@ Sitema web desarrollado como prueba de conocimiento en Symfony
 - Para poder ingresar al sistema es necesito tener un usuario y password.
 - Los usuarios de prueba tienen rol "CLIENTE" Y "ADMIN"
 - Cada usuario esta habilitado para realizar distintas acciones.
-- <b>USUARIO DE PRUEBA: </b>
-    <ul>
-        <li>Usuario: guille@admin.com</li>
-        <li>Password: 1234</li>
-        <li>Usuario: estefi@cliente.com</li>
-        <li>Password: 1234</li>
-    </ul>
+
 - ADMIN:
     <ul>
         <li>Crear, editar y eliminar empresas</li>
@@ -74,5 +68,21 @@ Al finalizar se debe ingresar a la carpeta "testsymfony" (el nombre del proyecto
 2) - <b>docker-compose run --rm apache composer install --prefer-dist</b>
 1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn install'</b>
 1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn encore dev'</b>
+
+# ENTRAR AL SISTEMA
+
+http://localhost:8086/ - Para el sistema
+http://localhost:8087/ - Para la base de datos (phpmyadmin)
+* DB: mysqlDB
+* user:  root
+* pass: root 
+
+*** <b>USUARIO DE PRUEBA: </b> ***
+    <ul>
+        <li>Usuario: guille@admin.com</li>
+        <li>Password: 1234</li>
+        <li>Usuario: estefi@cliente.com</li>
+        <li>Password: 1234</li>
+    </ul>
 
 
