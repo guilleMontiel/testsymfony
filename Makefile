@@ -13,6 +13,3 @@ init-dev:
 	$(DOCKER_COMPOSE) run --rm symfonyweb bash -ci 'yarn install'
 	$(DOCKER_COMPOSE) run --rm symfonyweb bash -ci 'yarn encore dev'
 
-composer-install:
-	$(DOCKER_COMPOSE) run --rm apache composer install --prefer-dist
-
