@@ -60,10 +60,17 @@ Sitema web desarrollado como prueba de conocimiento en Symfony
 - Una vez instalado Docker y Git se debe ejecutar el siguiente comando:
 <b>git clone https://github.com/guilleMontiel/testsymfony.git</b>
 
-- Al finalizar se debe ingresar a la carpeta donde se clono el proyecto y ejecutar:
-1) - <b>docker-compose up -d</b>
-2) - <b>docker-compose run --rm php composer install --prefer-dist</b>
-1) - <b>docker-compose exec apache php bin/console doctrine:migrations:execute</b>
-1) - <b>docker-compose exec yarn insttal</b>
+- Al finalizar se debe ingresar a la carpeta "testsymfony" (el nombre del proyecto clonado) ejecutar:
+
+** CON MAKE COLO EN LINUX ***
+1)- make composer-install (solo la primera vez)
+2)- make init-dev  (solo la primera vez)
+3)- make up (siempre)
+
+** SIN MAKE SOLO CON DOCKER ***
+1) - <b>docker-compose up -d --build</b>
+2) - <b>docker-compose run --rm apache composer install --prefer-dist</b>
+1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn install'</b>
+1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn encore dev'</b>
 
 
