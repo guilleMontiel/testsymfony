@@ -25,6 +25,7 @@ Encore
     .addEntry('confirmcss', './assets/styles/confirm.css')
     .addEntry('sectorjs', './assets/sector.js')
     .addEntry('monedajs', './assets/moneda.js')
+    .addEntry('usuariojs', './assets/usuario.js')
 
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

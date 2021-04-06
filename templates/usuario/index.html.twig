@@ -29,6 +29,12 @@
                 <b><i class="fas fa-check-circle"></i> {{ message }}</b>
             </div>
         {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                <b><i class="fas fa-times-circle"></i> {{ message }}</b>
+            </div>
+        {% endfor %}
+        
     </div>
     
     <div class="col-sm-12">
@@ -36,6 +42,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>NOMBRE</th>
                     <th>EMAIL</th>
                     <th>ROL</th>
                     <th>&nbsp;</th>
@@ -45,6 +52,7 @@
                 {% for usuario in usuarios %}
                 <tr>
                     <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nombre }}</td>
                     <td>{{ usuario.email }}</td>
                     <td>{% for rol in usuario.getRoles %}
                         {{ rol }}
@@ -61,6 +69,9 @@
            
     </div>
 </div>
+                    
+{{ encore_entry_link_tags('confirmcss') }}
+{{ encore_entry_script_tags('usuariojs') }}
 {% endblock %}
 
 

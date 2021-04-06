@@ -37,14 +37,12 @@ new_sector:
 edit_sector:
     path: /sector/update/{id}
     controller: App\Controller\SectorController::update
-    
-asociar:
-    path: /sector/asociar
-    controller: App\Controller\SectorController::asociar
-    
 delete_sector:
     path: /sector/delete/{id}
-    controller: App\Controller\SectorController::delete
+    controller: App\Controller\SectorController::delete    
+asociar:
+    path: /sector/asociar
+    controller: App\Controller\SectorController::asociar   
 cliente_sector:
     path: /sector/sectorporcliente
     controller: App\Controller\SectorController::sectorporcliente
@@ -59,11 +57,11 @@ usuario_alta_admin:
     path: /usuario/altaAdmin
     controller: App\Controller\UsuarioController::altaAdmin
 edit_usuario:
-    path: /usuario/edit
-    controller: App\Controller\UsuarioController::altaAdmin
-update_usuario:
-    path: /usuario/altaAdmin
-    controller: App\Controller\UsuarioController::altaAdmin
+    path: /usuario/update/{id}
+    controller: App\Controller\UsuarioController::update
+delete_usuario:
+    path: /usuario/delete/{id}
+    controller: App\Controller\UsuarioController::delete
     
     
 moneda:
