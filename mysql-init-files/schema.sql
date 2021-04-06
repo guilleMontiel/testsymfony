@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysqlDB
--- Tiempo de generación: 06-04-2021 a las 09:32:26
+-- Tiempo de generación: 06-04-2021 a las 10:52:37
 -- Versión del servidor: 5.7.33
 -- Versión de PHP: 7.4.16
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -101,10 +100,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `nombre`) VALUES
-(1, 'jose@cliente.com', '[\"ROLE_CLIENTE\"]', '1234', 'Jose'),
+(1, 'jose@cliente.com', '[\"ROLE_CLIENTE\"]', '$argon2id$v=19$m=65536,t=4,p=1$ujMbnz4qGQi/YeWhtuwA/g$VzmEOhSfeuvXXJNn6J8VVTrsEDN7fXktLtzeVeKoIEY', 'Jose'),
 (3, 'guille@admin.com', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$ujMbnz4qGQi/YeWhtuwA/g$VzmEOhSfeuvXXJNn6J8VVTrsEDN7fXktLtzeVeKoIEY', 'Guillermo'),
-(4, 'belen@cliente.com', '[\"ROLE_CLIENTE\"]', '1234', 'Belen Risco'),
-(5, 'estefi@cliente.com', '[\"ROLE_CLIENTE\"]', '$argon2id$v=19$m=65536,t=4,p=1$yY+lfzZVTF8nQPH8D9EJrA$hZOrxMUjzWMlVkWKu9q8J0za9s9R+zt+oE12CxBjVaA', 'Estefania');
+(4, 'belen@cliente.com', '[\"ROLE_CLIENTE\"]', '$argon2id$v=19$m=65536,t=4,p=1$yY+lfzZVTF8nQPH8D9EJrA$hZOrxMUjzWMlVkWKu9q8J0za9s9R+zt+oE12CxBjVaA', 'Belen'),
+(5, 'estefi@cliente.com', '[\"ROLE_CLIENTE\"]', '$argon2id$v=19$m=65536,t=4,p=1$yY+lfzZVTF8nQPH8D9EJrA$hZOrxMUjzWMlVkWKu9q8J0za9s9R+zt+oE12CxBjVaA', 'Estefania'),
+(6, 'nuevo@cliente.com', '[\"ROLE_CLIENTE\"]', '$argon2id$v=19$m=65536,t=4,p=1$QSHASmtN1D/9BccfbfP3xg$b1eAgsvLr2FnsiaZoIVgqdYhWZCCkyRhQjLI7hUflRk', 'juan perez');
 
 --
 -- Índices para tablas volcadas
@@ -164,7 +164,7 @@ ALTER TABLE `sector`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -182,7 +182,6 @@ ALTER TABLE `cliente_sector`
 --
 ALTER TABLE `empresa`
   ADD CONSTRAINT `FK_B8D75A50DE95C867` FOREIGN KEY (`sector_id`) REFERENCES `sector` (`id`);
-SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
