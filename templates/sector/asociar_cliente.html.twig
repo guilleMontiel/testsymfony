@@ -22,27 +22,13 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    {{ form(form) }}
-                    {#<form method="POST">
-                        <div class="form-group">
-                            <label>Cliente</label>
-                            <select class="form-control" name="id_user">
-                                {% for cliente in clientes %}
-                                    <option value="{{ cliente.id }}" >{{ cliente.nombre }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                            <div class="form-group">
-                            <label>Sector</label>
-                            <select class="form-control" name="id_sector">
-                                {% for sector in sectores %}
-                                    <option value="{{ sector.id }}" >{{ sector.nombre }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                            <button class="btn btn-success" type="submit">Guardar</button>
-                            <a class="btn btn-danger" href="{{ path('sector') }}">Cancelar</a>
-                    </form>#}
+                    {{ form_start(form) }}
+                            {{ form_row(form.id_user) }}
+                            {{ form_row(form.id_sector) }}
+                            <div class="row">
+                            {{ form_row(form.Guardar) }}&nbsp; {{ form_row(form.Cancelar) }}
+                            </div>
+                    {{ form_end(form) }}
                 </div>
             </div>            
         </div>

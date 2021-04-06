@@ -46,7 +46,8 @@ class UsuarioController extends AbstractController
         }
         
         return $this->render('usuario/alta.html.twig',[
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'user_type'=>'Cliente'
         ]);
     }
     
@@ -71,7 +72,8 @@ class UsuarioController extends AbstractController
         }
         
         return $this->render('usuario/alta.html.twig',[
-            'form'=>$form->createView()
+            'form'=>$form->createView(),
+            'user_type'=>'Administrador'
         ]);
     }
     

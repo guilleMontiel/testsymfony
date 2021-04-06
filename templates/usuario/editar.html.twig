@@ -23,8 +23,11 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                {{ form(form) }}
-            </div>
+                    {{ form_start(form) }}
+                            {{ form_row(form.nombre) }}
+                            {{ form_row(form.Guardar) }}
+                    {{ form_end(form) }}
+                </div>
             </div>            
         </div>
     </div>

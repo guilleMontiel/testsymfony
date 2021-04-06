@@ -35,3 +35,7 @@ $('.deleteLink').click(function(){
 $("#sector_Cancelar").click(function(){
      window.location.href =  '/sector';
 });
+
+$("#cliente_sector_Cancelar").click(function(){
+     window.location.href =  '/sector';
+});

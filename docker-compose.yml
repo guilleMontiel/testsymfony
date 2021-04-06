@@ -6,19 +6,25 @@ services:
     dockerfile: Dockerfile 
    ports:
       - "8086:80"
-   working_dir: /var/www/html/atrinium/
+   working_dir: /var/www/html/testsymfony/
    volumes:
-      - ./:/var/www/html/atrinium/
+      - ./:/var/www/html/testsymfony/
       
  mysqlDB:
     image: mysql:5.7.33
     restart: always
-    ports: [3306]
+    ports: 
+      - "3600:3306"
     environment:
          MYSQL_ROOT_PASSWORD: root
          MYSQL_DATABASE: dbGuille
     volumes:
      - ./mysql-data:/var/lib/mysql
+     - ./mysql-init-files:/docker-entrypoint-initdb.d
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
  phpmyadmin:
     image: phpmyadmin
     depends_on:

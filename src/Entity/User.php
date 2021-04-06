@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
@@ -22,6 +22,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="El email no puede estar vacio")
+     * @Assert\NotNull(message="El email no puede ser null")
      */
     private $email;
 
@@ -31,13 +33,18 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @Assert\NotBlank(message="El password no puede estar vacio")
+     * @Assert\NotNull(message="El password no puede ser null")
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * 
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Assert\NotBlank(message="El nombre no puede estar vacio")
+     * @Assert\NotNull(message="El nombre no puede ser null")
      */
     private $nombre;
 
