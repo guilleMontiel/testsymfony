@@ -64,11 +64,13 @@ Sitema web desarrollado como prueba de conocimiento en Symfony
 Al finalizar se debe ingresar a la carpeta "testsymfony" (el nombre del proyecto clonado) y ejecutar:<br>
 
 ** CON MAKE SOLO EN LINUX ***<br>
-1)- make composer-install (solo la primera vez)
-2)- make init-dev  (solo la primera vez)
-3)- make up (siempre)
+
+1) - <b>make composer-install (solo la primera vez)</b>
+2) - <b>make init-dev  (solo la primera vez)</b>
+3) - <b>make up (siempre)</b>
 
 ** SIN MAKE SOLO CON DOCKER ***<br>
+
 1) - <b>docker-compose up -d --build</b>
 2) - <b>docker-compose run --rm apache composer install --prefer-dist</b>
 1) - <b>docker-compose run --rm symfonyweb bash -ci 'yarn install'</b>
