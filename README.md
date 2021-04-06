@@ -59,8 +59,8 @@ Al finalizar se debe ingresar a la carpeta "testsymfony" (el nombre del proyecto
 
 ** CON MAKE SOLO EN LINUX ***<br>
 
-2) - <b>make init-dev  (solo la primera vez, para instalar todas las dependencias)</b>
-3) - <b>make up (siempre)</b>
+1) - <b>make init-dev  (solo la primera vez, para instalar todas las dependencias)</b>
+2) - <b>make up (siempre)</b>
 
 ** SIN MAKE SOLO CON DOCKER ***<br>
 
